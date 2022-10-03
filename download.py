@@ -122,7 +122,7 @@ class Downloader:
                 pass
             if link.text in links:
                 continue
-            links.append(link.get_text())
+            links.append(link.get("href"))
 
         return links
 

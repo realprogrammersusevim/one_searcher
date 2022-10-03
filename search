@@ -41,7 +41,7 @@ def main():
         url = f"https://{downloader.search_engine}.com/search?q={downloader.search}+site:{source}"
         html = downloader.get_html(url)
         titles += downloader.get_titles(html, args.selector, args.num_results)
-        links = downloader.get_links(html, args.selector, args.num_results)
+        links += downloader.get_links(html, args.selector, args.num_results)
 
     html_output = downloader.create_html(titles, links, args.disable_stylesheet)
 

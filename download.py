@@ -3,6 +3,7 @@ import logging
 import bs4
 import fake_headers
 import requests
+from tqdm import tqdm
 
 logging.basicConfig(level=logging.INFO, filename="download.log")
 
@@ -84,7 +85,7 @@ class Downloader:
 
         for i, title in enumerate(parsed_html.select(selector)):
             if i == num_results:
-                break
+                pass
             if title.text in titles:
                 continue
             titles.append(title.text)
@@ -118,7 +119,7 @@ class Downloader:
         # Also make sure they aren't already in the list.
         for i, link in enumerate(parsed_html.select(selector)):
             if i == num_results:
-                break
+                pass
             if link.text in links:
                 continue
             links.append(link.get_text())
